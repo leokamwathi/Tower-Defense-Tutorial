@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  productGUID: 858e85308235640409a290a0752c13a6
+  productGUID: 72e3341510427fa489d610c3d022b523
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -578,12 +578,11 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    UNet: 1
+  cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: 3ec2b4df-665b-4b05-9743-1142492087ed
-  projectName: Tower Defense Tutorial (5)
+  cloudProjectId: fa89c01d-f4d0-403b-aac5-ae1d44b6141e
+  projectName: Tower Defense Tutorial (7)
   organizationId: demontrius-simon
   cloudEnabled: 0
   enableNewInputSystem: 0
