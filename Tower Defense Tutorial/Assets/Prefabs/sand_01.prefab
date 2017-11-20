@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4841368872207576}
   - component: {fileID: 212986616330063888}
+  - component: {fileID: 114126993771956812}
   m_Layer: 0
   m_Name: sand_01
   m_TagString: Untagged
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114126993771956812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625405610123032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5960d912176a3514797ac0a21e82bc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212986616330063888
 SpriteRenderer:
   m_ObjectHideFlags: 1

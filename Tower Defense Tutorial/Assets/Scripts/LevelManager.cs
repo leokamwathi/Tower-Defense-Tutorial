@@ -52,8 +52,8 @@ public class LevelManager : MonoBehaviour
 	private Vector3 PlaceTile(string tileType, int x, int y, Vector3 worldStart)
 	{
 		int tileIndex = int.Parse(tileType);
-		GameObject newTile = Instantiate(tilePrefabs[tileIndex]);
-		newTile.transform.position = new Vector3(worldStart.x + TileSize * x, worldStart.y - TileSize * y, 0);
+		TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
+		newTile.Setup(new Point(x, y), new Vector3(worldStart.x + TileSize * x, worldStart.y - TileSize * y, 0));
 		return newTile.transform.position;
 	}
 
