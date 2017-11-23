@@ -11,6 +11,9 @@ public class LevelManager : Singleton<LevelManager>
 	[SerializeField]
 	private CameraMovement cameraMovement;
 
+	[SerializeField]
+	private Transform map;
+
 	private Point blueSpawn, redSpawn;
 
 	[SerializeField]
@@ -67,7 +70,7 @@ public class LevelManager : Singleton<LevelManager>
 	{
 		int tileIndex = int.Parse(tileType);
 		TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
-		newTile.Setup(new Point(x, y), new Vector3(worldStart.x + TileSize * x, worldStart.y - TileSize * y, 0));
+		newTile.Setup(new Point(x, y), new Vector3(worldStart.x + TileSize * x, worldStart.y - TileSize * y, 0), map);
 	}
 
 	private string[] ReadLevelText()

@@ -108,6 +108,34 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1161852698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1161852699}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1161852699
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161852698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578707940
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +172,7 @@ MonoBehaviour:
   - {fileID: 1453710917001128, guid: e091d7c9f7d99ba4589a7e064e18590d, type: 2}
   - {fileID: 1591338546015240, guid: f1a38519ff1e1fc42ab7030aec69d1a9, type: 2}
   cameraMovement: {fileID: 1670985730}
+  map: {fileID: 1161852699}
   bluePortalPrefab: {fileID: 1289726246753046, guid: 1fb88a85e44911d42a74e57146d848b8,
     type: 2}
   redPortalPrefab: {fileID: 1942280328878412, guid: 4f3114ae4266175468d8c5375367bcce,
