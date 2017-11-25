@@ -5,7 +5,14 @@ using UnityEngine.EventSystems;
 
 public class TileScript : MonoBehaviour
 {
-	public Point GridPosition { get; private set; }	
+	public Point GridPosition { get; private set; }
+
+	private Color32 fullColor = new Color32(255, 118, 118, 255);
+	private Color32 emptyColor = new Color32(96, 255, 90, 255);
+
+	private SpriteRenderer spriteRender;
+
+	public bool IsEmpty { get; private set; }
 
 	public Vector2 WorldPosition
 	{
@@ -16,8 +23,9 @@ public class TileScript : MonoBehaviour
 	}
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		spriteRender = GetComponent<SpriteRenderer>();	
 	}
 	
 	// Update is called once per frame
@@ -32,17 +40,31 @@ public class TileScript : MonoBehaviour
 		transform.position = worldPos;
 		transform.SetParent(parent);
 		LevelManager.Instance.Tiles.Add(gridPos,this);
+		IsEmpty = true;
 	}
 
 	private void OnMouseOver()
 	{
 		if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn != null)
 		{
-			if (Input.GetMouseButtonDown(0))
+			if (IsEmpty)
+			{
+				ColorTile(emptyColor);
+			}
+			if(!IsEmpty)
+			{
+				ColorTile(fullColor);
+			}
+			else if (Input.GetMouseButtonDown(0))
 			{
 				PlaceTower();
 			}
 		}
+	}
+
+	private void OnMouseExit()
+	{
+		ColorTile(Color.white);
 	}
 
 	private void PlaceTower()
@@ -51,5 +73,12 @@ public class TileScript : MonoBehaviour
 		tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 		tower.transform.SetParent(transform);
 		GameManager.Instance.BuyTower();
+		ColorTile(Color.white);
+		IsEmpty = false;
+	}
+
+	private void ColorTile(Color newColor)
+	{
+		spriteRender.color = newColor;
 	}
 }
