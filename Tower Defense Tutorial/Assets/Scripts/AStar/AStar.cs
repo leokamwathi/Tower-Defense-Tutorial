@@ -17,7 +17,7 @@ public static class AStar
 		}
 	}
 
-	public static void GetPath(Point start)
+	public static void GetPath(Point start, Point goal)
 	{
 		if (nodes == null)
 		{
@@ -55,7 +55,7 @@ public static class AStar
 						openList.Add(neighbour);
 					}
 
-					neighbour.CalcValues(currentNode, gCost);
+					neighbour.CalcValues(currentNode, nodes[goal], gCost);
 				}
 			}
 		}
