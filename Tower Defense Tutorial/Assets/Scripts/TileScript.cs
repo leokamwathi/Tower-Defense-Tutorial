@@ -16,6 +16,8 @@ public class TileScript : MonoBehaviour
 
 	public bool IsEmpty { get; private set; }
 
+	public bool Walkable { get; set; }
+
 	public Vector2 WorldPosition
 	{
 		get
@@ -43,6 +45,7 @@ public class TileScript : MonoBehaviour
 		transform.SetParent(parent);
 		LevelManager.Instance.Tiles.Add(gridPos,this);
 		IsEmpty = true;
+		Walkable = true;
 	}
 
 	private void OnMouseOver()
@@ -80,6 +83,7 @@ public class TileScript : MonoBehaviour
 		GameManager.Instance.BuyTower();
 		ColorTile(Color.white);
 		IsEmpty = false;
+		Walkable = false;
 	}
 
 	private void ColorTile(Color newColor)
