@@ -12,6 +12,9 @@ public class AStarDebugger : MonoBehaviour
 	[SerializeField]
 	private GameObject arrowPrefab;
 
+	[SerializeField]
+	private GameObject debugTilePrefab;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -50,39 +53,39 @@ public class AStarDebugger : MonoBehaviour
 					{
 						//...make this the start...
 						start = tmp;
-						//Change the sprite to a blank Tile
-						start.SpriteRender.sprite = blankTile;
-						//Change the sprite color to green
-						start.SpriteRender.color = Color.green;
-						start.Debugging = true;
+						CreateDebugTile(start.WorldPosition, new Color32(255, 135, 0, 255));
 					}
 					//...if there was a start, but no goal...
 					else if (goal == null)
 					{
 						//..make this the goal
 						goal = tmp;
-						//Change the sprite to a blank Tile
-						goal.SpriteRender.sprite = blankTile;
-						//Change the sprite color to red
-						goal.SpriteRender.color = new Color32(255, 0, 0, 255);
-						goal.Debugging = true;
+						CreateDebugTile(goal.WorldPosition, new Color32(255, 0, 0, 255));
+
 					}
 				}
 			}
 		}
 	}
 
-	public void DebugPath(HashSet<Node> openList)
+	public void DebugPath(HashSet<Node> openList, HashSet<Node> closeList)
 	{
 		foreach (Node node in openList)
 		{
 			if (node.TileRef !=start)
 			{
-				node.TileRef.SpriteRender.color = Color.cyan;
-				node.TileRef.SpriteRender.sprite = blankTile;
+				CreateDebugTile(node.TileRef.WorldPosition, Color.cyan);
 			}
 
 			PointToParent(node, node.TileRef.WorldPosition);
+		}
+
+		foreach (Node node in closeList)
+		{
+			if (node.TileRef != start && node.TileRef != goal)
+			{
+				CreateDebugTile(node.TileRef.WorldPosition, Color.blue);
+			}
 		}
 	}
 
@@ -91,6 +94,8 @@ public class AStarDebugger : MonoBehaviour
 		if (node.Parent !=null)
 		{
 			GameObject arrow = (GameObject)Instantiate(arrowPrefab, position, Quaternion.identity);
+
+			arrow.GetComponent<SpriteRenderer>().sortingOrder = 3;
 			//Right
 			if ((node.GridPosition.X < node.Parent.GridPosition.X) && (node.GridPosition.Y == node.Parent.GridPosition.Y))
 			{
@@ -132,5 +137,11 @@ public class AStarDebugger : MonoBehaviour
 				arrow.transform.eulerAngles = new Vector3(0, 0, 315);
 			}
 		}
+	}
+
+	private void CreateDebugTile(Vector3 worldPos, Color32 color)
+	{
+		GameObject debugTile = Instantiate(debugTilePrefab, worldPos, Quaternion.identity);
+		debugTile.GetComponent<SpriteRenderer>().color = color;
 	}
 }

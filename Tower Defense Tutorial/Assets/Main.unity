@@ -1743,6 +1743,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blankTile: {fileID: 21300000, guid: e30a228b532f93e41bebb2e0e480e7f6, type: 3}
+  arrowPrefab: {fileID: 1705103127137412, guid: b34905c49d9033a45847b561b33a716e,
+    type: 2}
+  debugTilePrefab: {fileID: 1135930064285824, guid: 3da2d5da3e54d124d967dc777b3e87a6,
+    type: 2}
 --- !u!4 &1994571925
 Transform:
   m_ObjectHideFlags: 0
