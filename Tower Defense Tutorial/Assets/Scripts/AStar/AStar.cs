@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class AStar 
@@ -28,41 +29,79 @@ public static class AStar
 
 		HashSet<Node> closeList = new HashSet<Node>();
 
+		Stack<Node> finalPath = new Stack<Node>();
+
 		Node currentNode = nodes[start];
 
+		//Step 1
 		openList.Add(currentNode);
 
-		for (int x = -1; x <= 1; x++)
+		//Step 10.1
+		while (openList.Count > 0)
 		{
-			for (int y = -1; y <= 1; y++)
+			//Step 2
+			for (int x = -1; x <= 1; x++)
 			{
-				Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
-				if (LevelManager.Instance.Inbounds(neighbourPos) && LevelManager.Instance.Tiles[neighbourPos].Walkable && neighbourPos != currentNode.GridPosition)
+				for (int y = -1; y <= 1; y++)
 				{
-					int gCost = 0;
+					Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
+					if (LevelManager.Instance.Inbounds(neighbourPos) && LevelManager.Instance.Tiles[neighbourPos].Walkable && neighbourPos != currentNode.GridPosition)
+					{
+						int gCost = 0;
 
-					if (Math.Abs(x-y) ==1)
-					{
-						gCost = 10;
-					}
-					else
-					{
-						gCost = 14;
-					}
-					Node neighbour = nodes[neighbourPos];
-					if (!openList.Contains(neighbour))
-					{
-						openList.Add(neighbour);
-					}
+						if (Math.Abs(x - y) == 1)
+						{
+							gCost = 10;
+						}
+						else
+						{
+							gCost = 14;
+						}
+						//Step 3
+						Node neighbour = nodes[neighbourPos];
 
-					neighbour.CalcValues(currentNode, nodes[goal], gCost);
+						if (openList.Contains(neighbour))
+						{
+							if (currentNode.G + gCost < neighbour.G)
+							{
+								//Step 9.4
+								neighbour.CalcValues(currentNode, nodes[goal], gCost);
+							}
+						}
+
+						//Step 9.1
+						else if (!closeList.Contains(neighbour))
+						{
+							//Step 9.2
+							openList.Add(neighbour);
+							//Step 9.3
+							neighbour.CalcValues(currentNode, nodes[goal], gCost);
+						}
+					}
 				}
 			}
+
+			//step 5 and 8
+			openList.Remove(currentNode);
+			closeList.Add(currentNode);
+
+			//step 7
+			if (openList.Count > 0)
+			{
+				currentNode = openList.OrderBy(n => n.F).First();
+			}
+
+			if (currentNode == nodes[goal])
+			{
+				while (currentNode.GridPosition != start)
+				{
+					finalPath.Push(currentNode);
+					currentNode = currentNode.Parent;
+				}
+				break;
+			}
 		}
-
-		openList.Remove(currentNode);
-		closeList.Add(currentNode);
-
+		
 		//THIS IS ONLY FOR DEBUGGING NEEDS TO BE REMOVED LATER
 		GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closeList);
 	}
