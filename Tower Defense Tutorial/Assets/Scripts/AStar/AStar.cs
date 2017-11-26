@@ -49,12 +49,18 @@ public static class AStar
 					{
 						int gCost = 0;
 
+						//Score 10 in we are moving to the side or up or down
 						if (Math.Abs(x - y) == 1)
 						{
 							gCost = 10;
 						}
+						//scores 14 if we are moving diagonally 
 						else
 						{
+							if (!ConnectedDiagonally(currentNode, nodes[neighbourPos]))
+							{
+								continue;
+							}
 							gCost = 14;
 						}
 						//Step 3
@@ -103,6 +109,25 @@ public static class AStar
 		}
 		
 		//THIS IS ONLY FOR DEBUGGING NEEDS TO BE REMOVED LATER
-		GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closeList);
+		GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closeList, finalPath);
+	}
+
+	private static bool ConnectedDiagonally(Node currentNode, Node neighbor)
+	{
+		Point direction = neighbor.GridPosition - currentNode.GridPosition;
+
+		Point first = new Point(currentNode.GridPosition.X + direction.X, currentNode.GridPosition.Y);
+
+		Point second = new Point(currentNode.GridPosition.X, currentNode.GridPosition.Y + direction.Y);
+
+		if (LevelManager.Instance.Inbounds(first) && !LevelManager.Instance.Tiles[first].Walkable)
+		{
+			return false;
+		}
+		if (LevelManager.Instance.Inbounds(second) && !LevelManager.Instance.Tiles[second].Walkable)
+		{
+			return false;
+		}
+		return true;
 	}
 }
