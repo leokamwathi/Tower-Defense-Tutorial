@@ -1350,6 +1350,7 @@ GameObject:
   - component: {fileID: 1595801322}
   - component: {fileID: 1595801325}
   - component: {fileID: 1595801324}
+  - component: {fileID: 1595801326}
   m_Layer: 5
   m_Name: CurrencyTxt
   m_TagString: Untagged
@@ -1442,6 +1443,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!225 &1595801326
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595801320}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1670985724
 GameObject:
   m_ObjectHideFlags: 0
