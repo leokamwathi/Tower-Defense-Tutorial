@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
 	// Use this for initialization
 	void Start ()
 	{
-		Currency = 100;
+		Currency = 1000;
 	}
 	
 	// Update is called once per frame
@@ -80,7 +80,7 @@ public class GameManager : Singleton<GameManager>
 	{ 
 		LevelManager.Instance.GeneratePath();
 
-		int monsterIndex = Random.Range(0, 4);
+		int monsterIndex = 1; //Random.Range(0, 4);
 		string type = string.Empty;
 		switch (monsterIndex)
 		{
