@@ -80,7 +80,7 @@ public class GameManager : Singleton<GameManager>
 	{ 
 		LevelManager.Instance.GeneratePath();
 
-		int monsterIndex = 2; //Random.Range(0, 4);
+		int monsterIndex = 0; //Random.Range(0, 4);
 		string type = string.Empty;
 		switch (monsterIndex)
 		{
