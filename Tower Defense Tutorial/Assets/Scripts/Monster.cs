@@ -28,15 +28,13 @@ public class Monster : MonoBehaviour
 
 		myAnimator = GetComponent<Animator>();
 
-		StartCoroutine(Scale(new Vector3(0.1f, 0.1f), new Vector3(1, 1)));
+		StartCoroutine(Scale(new Vector3(0.1f, 0.1f), new Vector3(1, 1), false));
 
 		SetPath(LevelManager.Instance.Path);
 	}
 
-	public IEnumerator Scale(Vector3 from, Vector3 to)
-	{
-		IsActive = false;
-
+	public IEnumerator Scale(Vector3 from, Vector3 to, bool remove)
+	{ 
 		float progress = 0;
 
 		while (progress <= 1)
@@ -50,6 +48,11 @@ public class Monster : MonoBehaviour
 		transform.localScale = to;
 
 		IsActive = true;
+
+		if (remove)
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	private void Move()
@@ -108,6 +111,14 @@ public class Monster : MonoBehaviour
 				myAnimator.SetInteger("Vertical", 0);
 				//Moving to the right
 			}
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "RedPortal")
+		{
+			StartCoroutine(Scale(new Vector3(1, 1), new Vector3(0.1f, 0.1f), true));
 		}
 	}
 }
