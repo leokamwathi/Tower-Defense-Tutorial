@@ -1,15 +1,31 @@
 fileFormatVersion: 2
 guid: 8ca2274f3cdedaf4180fa0107cb8835f
-timeCreated: 1466920771
+timeCreated: 1511929699
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
-  serializedVersion: 2
+  fileIDToRecycleName:
+    21300000: blue_open_0
+    21300002: blue_open_1
+    21300004: blue_open_2
+    21300006: blue_open_3
+    21300008: blue_open_4
+    21300010: blue_open_5
+    21300012: blue_open_6
+    21300014: blue_open_7
+    21300016: blue_open_8
+    21300018: blue_open_9
+    21300020: blue_open_10
+    21300022: blue_open_11
+    21300024: blue_open_12
+    21300026: blue_open_13
+    21300028: blue_open_14
+    21300030: blue_open_15
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -21,10 +37,8 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
@@ -35,9 +49,7 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -45,11 +57,242 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
-    sprites: []
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blue_open_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3591
+        width: 360
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_1
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 3593
+        width: 360
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_2
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 3596
+        width: 360
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_3
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 3598
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_4
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 3598
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3086
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 3086
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_7
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 3086
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_8
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 3086
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_9
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 3086
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 2574
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_11
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 2574
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_12
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 2574
+        width: 360
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_13
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 2573
+        width: 360
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_14
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 2567
+        width: 360
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_open_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 2055
+        width: 360
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
