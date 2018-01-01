@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
@@ -24,6 +25,35 @@ public class GameManager : Singleton<GameManager>
 	private int currency;
 
 	private int wave = 0;
+
+	private int lives;
+
+	private bool gameOver = false;
+
+	[SerializeField]
+	private GameObject gameOverMenu;
+
+	[SerializeField]
+	private Text livesTxt;
+
+	public int Lives
+	{
+		get
+		{
+			return lives;
+		}
+
+		set
+		{
+			this.lives = value;
+			livesTxt.text = lives.ToString();
+			if (lives <=0)
+			{
+				this.lives = 0;
+				GameOver();
+			}
+		}
+	}
 
 	public bool WaveActive
 	{
@@ -54,6 +84,7 @@ public class GameManager : Singleton<GameManager>
 	// Use this for initialization
 	void Start ()
 	{
+		Lives = 10;
 		Currency = 100;
 	}
 	
@@ -138,9 +169,30 @@ public class GameManager : Singleton<GameManager>
 	{
 		activeMonsters.Remove(monster);
 
-		if (!WaveActive)
+		if (!WaveActive && !gameOver)
 		{
 			waveBtn.SetActive(true);
 		}
+	}
+
+	public void GameOver()
+	{
+		if (!gameOver)
+		{
+			gameOver = true;
+			gameOverMenu.SetActive(true);
+		}
+	}
+
+	public void Restart()
+	{
+		Time.timeScale = 1;
+
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
 	}
 }
