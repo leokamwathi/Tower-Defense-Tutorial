@@ -33,6 +33,8 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField]
 	private GameObject gameOverMenu;
 
+	private Tower selectedTower;
+
 	[SerializeField]
 	private Text livesTxt;
 
@@ -110,6 +112,25 @@ public class GameManager : Singleton<GameManager>
 			Currency -= ClickedBtn.Price;
 			Hover.Instance.Deactivate();
 		}
+	}
+
+	public void SelectTower(Tower tower)
+	{
+		if (selectedTower !=null)
+		{
+			selectedTower.Select();
+		}
+		selectedTower = tower;
+		selectedTower.Select();
+	}
+
+	public void DeselectTower()
+	{
+		if (selectedTower !=null)
+		{
+			selectedTower.Select();
+		}
+		selectedTower = null;
 	}
 
 	private void HandleEscape()

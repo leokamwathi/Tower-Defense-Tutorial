@@ -16,6 +16,8 @@ public class TileScript : MonoBehaviour
 
 	public bool IsEmpty { get; private set; }
 
+	private Tower myTower;
+
 	public bool Walkable { get; set; }
 
 	public Vector2 WorldPosition
@@ -65,6 +67,17 @@ public class TileScript : MonoBehaviour
 				PlaceTower();
 			}
 		}
+		else if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn == null && Input.GetMouseButton(0))
+		{
+			if (myTower != null)
+			{
+				GameManager.Instance.SelectTower(myTower);
+			}
+			else
+			{
+				GameManager.Instance.DeselectTower();
+			}
+		}
 	}
 
 	private void OnMouseExit()
@@ -80,6 +93,7 @@ public class TileScript : MonoBehaviour
 		GameObject tower = (GameObject)Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, transform.position, Quaternion.identity);
 		tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 		tower.transform.SetParent(transform);
+		this.myTower = tower.transform.GetChild(0).GetComponent<Tower>();
 		GameManager.Instance.BuyTower();
 		ColorTile(Color.white);
 		IsEmpty = false;
