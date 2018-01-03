@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c77368d5fc476449ec1f172aeb2671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileType: FrostProjectile
+  projectileSpeed: 3
+  attackCooldown: 3
 --- !u!212 &212479875169189218
 SpriteRenderer:
   m_ObjectHideFlags: 1
