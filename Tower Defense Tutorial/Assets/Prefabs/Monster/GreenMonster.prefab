@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 222365792620180904}
   - component: {fileID: 114258477976130484}
   - component: {fileID: 114308126642200754}
+  - component: {fileID: 114407406569066822}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -271,6 +272,23 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114407406569066822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1411658237884312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6ace6ab4287b44db6a6089c8430a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 1
+  content: {fileID: 114996808327046492}
+  valueText: {fileID: 0}
+  fullColor: {r: 0, g: 0, b: 0, a: 0}
+  lowColor: {r: 0, g: 0, b: 0, a: 0}
+  lerpColors: 0
 --- !u!114 &114535760809586976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,6 +301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  health:
+    bar: {fileID: 114407406569066822}
+    maxVal: 0
+    currentVal: 0
 --- !u!114 &114672380930267524
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,14 +17,28 @@ public class Monster : MonoBehaviour
 
 	private Animator myAnimator;
 
+	[SerializeField]
+	private Stat health;
+
+
+	private void Awake()
+	{
+		//myAnimator = GetComponent<Animator>();
+		health.Initialize();
+	}
+
 	private void Update()
 	{
 		Move();
 	}
 
-	public void Spawn()
+	public void Spawn(int health)
 	{
 		transform.position = LevelManager.Instance.BluePortal.transform.position;
+
+		this.health.MaxValue = health;
+
+		this.health.CurrentValue = this.health.MaxValue;
 
 		myAnimator = GetComponent<Animator>();
 
@@ -130,5 +144,13 @@ public class Monster : MonoBehaviour
 		GridPosition = LevelManager.Instance.BlueSpawn;
 		GameManager.Instance.Pool.ReleaseObject(gameObject);
 		GameManager.Instance.RemoveMonster(this);
+	}
+
+	public void TakeDamage(int damage)
+	{
+		if (IsActive)
+		{
+			health.CurrentValue -= damage;
+		}
 	}
 }

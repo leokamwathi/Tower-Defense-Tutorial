@@ -17,11 +17,23 @@ public class Tower : MonoBehaviour
 
 	private Animator myAnimator;
 
+	[SerializeField]
+	private int damage;
+
 	private Monster target;
 
 	public Monster Target
 	{
 		get { return target; }
+	}
+
+	public int Damage
+	{
+		get
+		{
+			return damage;
+		}
+
 	}
 
 	private bool canAttack = true;

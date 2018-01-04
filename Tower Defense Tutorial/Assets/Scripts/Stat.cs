@@ -15,7 +15,7 @@ public class Stat
     [SerializeField]
     private float currentVal;
 
-    public float CurrentVal
+    public float CurrentValue
     {
         get
         {
@@ -24,12 +24,12 @@ public class Stat
 
         set
         {
-            this.currentVal = Mathf.Clamp(value, 0, MaxVal);
+            this.currentVal = Mathf.Clamp(value, 0, MaxValue);
             bar.Value = currentVal;
         }
     }
 
-    public float MaxVal
+    public float MaxValue
     {
         get
         {
@@ -45,7 +45,7 @@ public class Stat
 
     public void Initialize()
     {
-        this.MaxVal = maxVal;
-        this.CurrentVal = currentVal;
+        this.MaxValue = maxVal;
+        this.CurrentValue = currentVal;
     }
 }
