@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212382906194306636}
   - component: {fileID: 114163720737308908}
   - component: {fileID: 61793115999123488}
+  - component: {fileID: 95200145556032228}
   m_Layer: 0
   m_Name: FireProjectile
   m_TagString: Untagged
@@ -67,6 +68,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48666668, y: 0.24666667}
   m_EdgeRadius: 0
+--- !u!95 &95200145556032228
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162924939178206}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d358e5d9c05e5de40b0e0f2fecbd6774, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114163720737308908
 MonoBehaviour:
   m_ObjectHideFlags: 1
