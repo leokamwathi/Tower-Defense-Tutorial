@@ -15,6 +15,8 @@ public class Tower : MonoBehaviour
 		get { return projectileSpeed; }
 	}
 
+	private Animator myAnimator;
+
 	private Monster target;
 
 	public Monster Target
@@ -34,9 +36,10 @@ public class Tower : MonoBehaviour
 	private Queue<Monster> monsters = new Queue<Monster>();
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
+		myAnimator = transform.parent.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -73,6 +76,8 @@ public class Tower : MonoBehaviour
 			if (canAttack)
 			{
 				Shoot();
+
+				myAnimator.SetTrigger("Attack");
 
 				canAttack = false;
 			}
