@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6ace6ab4287b44db6a6089c8430a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 1
+  lerpSpeed: 2
   content: {fileID: 114680800838296162}
   valueText: {fileID: 0}
   fullColor: {r: 0, g: 0, b: 0, a: 0}

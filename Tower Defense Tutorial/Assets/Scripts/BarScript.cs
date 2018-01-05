@@ -76,4 +76,10 @@ public class BarScript : MonoBehaviour
         78 / 230 
         0.339*/
     }
+
+	public void Reset()
+	{
+		content.fillAmount = 1;
+		Value = MaxValue;
+	}
 }
