@@ -15,6 +15,13 @@ public class Monster : MonoBehaviour
 
 	public bool IsActive { get; set; }
 
+	private SpriteRenderer spriteRenderer;
+
+	public bool Alive
+	{
+		get { return health.CurrentValue > 0; }
+	}
+
 	private Animator myAnimator;
 
 	[SerializeField]
@@ -23,8 +30,9 @@ public class Monster : MonoBehaviour
 
 	private void Awake()
 	{
-		//myAnimator = GetComponent<Animator>();
+		myAnimator = GetComponent<Animator>();
 		health.Initialize();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	private void Update()
@@ -137,6 +145,11 @@ public class Monster : MonoBehaviour
 			StartCoroutine(Scale(new Vector3(1, 1), new Vector3(0.1f, 0.1f), true));
 			other.GetComponent<Portal>().Open();
 			GameManager.Instance.Lives--;
+		}
+
+		if (other.tag == "Tile")
+		{
+			spriteRenderer.sortingOrder = other.GetComponent<TileScript>().GridPosition.Y;
 		}
 	}
 
