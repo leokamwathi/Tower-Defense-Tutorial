@@ -40,6 +40,8 @@ public class Tower : MonoBehaviour
 
 	private float attackTimer;
 
+	public int Price { get; set; }
+
 	[SerializeField]
 	private float attackCooldown;
 

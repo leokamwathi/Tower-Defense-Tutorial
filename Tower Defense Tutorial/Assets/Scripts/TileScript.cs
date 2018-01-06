@@ -14,7 +14,7 @@ public class TileScript : MonoBehaviour
 
 	public bool Debugging { get; set; }
 
-	public bool IsEmpty { get; private set; }
+	public bool IsEmpty { get; set; }
 
 	private Tower myTower;
 
@@ -94,6 +94,7 @@ public class TileScript : MonoBehaviour
 		tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
 		tower.transform.SetParent(transform);
 		this.myTower = tower.transform.GetChild(0).GetComponent<Tower>();
+		myTower.Price = GameManager.Instance.ClickedBtn.Price;
 		GameManager.Instance.BuyTower();
 		ColorTile(Color.white);
 		IsEmpty = false;
